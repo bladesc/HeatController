@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3dd24619-9e8c-4c12-a12d-85e69eeb0c2c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/heatController.php" beforeDir="false" afterPath="$PROJECT_DIR$/heatController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,8 +25,8 @@
       <file leaf-file-name="heatController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/heatController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="189" column="2" selection-start-line="189" selection-end-line="191" selection-end-column="16" />
+            <state relative-caret-position="535">
+              <caret line="261" lean-forward="true" selection-start-line="261" selection-end-line="261" />
             </state>
           </provider>
         </entry>
@@ -115,12 +114,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1543164014959</updated>
-      <workItem from="1543164016338" duration="10759000" />
+      <workItem from="1543164016338" duration="12424000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10759000" />
+    <option name="totallyTimeSpent" value="12424000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -176,8 +175,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/heatController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="189" column="2" selection-start-line="189" selection-end-line="191" selection-end-column="16" />
+        <state relative-caret-position="535">
+          <caret line="261" lean-forward="true" selection-start-line="261" selection-end-line="261" />
         </state>
       </provider>
     </entry>
