@@ -7,7 +7,7 @@
  */
 
 $tempInside = 10;
-$tempDesired = 14;
+$tempDesired = 10.9;
 
 $tempDifference = $tempDesired - $tempInside;
 
@@ -17,64 +17,69 @@ $heating = [];
 //LINGUISTIC VARIABLE - DIFFERENCE [v.small, small, medium, big, v.big]
 //array from -10 to 50, increments = 0.01 (changeable)
 
-for ($i = -10; $i <= 50; $i++) {
+for ($i = -10; $i <= 50; $i = $i + 0.01) {
 
+    $i = round($i, 2);
+    
     //VARIABLE - V.SMALL
     if ($i <= -10) {
-        $difference['v.small'][$i] = 0;
+        $difference['v.small']["$i"] = 0;
     } elseif ($i > -10 && $i <= 0) {
-        $difference['v.small'][$i] = ($i - (-10)) / (0 - (-10));
+        $difference['v.small']["$i"] = ($i - (-10)) / (0 - (-10));
     } elseif ($i > 0 && $i < 10) {
-        $difference['v.small'][$i] = (10 - $i) / (10 - 0);
+        $difference['v.small']["$i"] = (10 - $i) / (10 - 0);
     } elseif ($i >= 10) {
-        $difference['v.small'][$i] = 0;
+        $difference['v.small']["$i"] = 0;
     }
 
     //VARIABLE - SMALL
     if ($i <= 0) {
-        $difference['small'][$i] = 0;
+        $difference['small']["$i"] = 0;
     } elseif ($i > 0 && $i <= 10) {
-        $difference['small'][$i] = ($i - 0) / (10 - 0);
+        $difference['small']["$i"] = ($i - 0) / (10 - 0);
     } elseif ($i > 10 && $i < 20) {
-        $difference['small'][$i] = (20 - $i) / (20 - 10);
+        $difference['small']["$i"] = (20 - $i) / (20 - 10);
     } elseif ($i >= 20) {
-        $difference['small'][$i] = 0;
+        $difference['small']["$i"] = 0;
     }
 
     //VARIABLE - MEDIUM
     if ($i <= 10) {
-        $difference['medium'][$i] = 0;
+        $difference['medium']["$i"] = 0;
     } elseif ($i > 10 && $i <= 20) {
-        $difference['medium'][$i] = ($i - 10) / (20 - 10);
+        $difference['medium']["$i"] = ($i - 10) / (20 - 10);
     } elseif ($i > 20 && $i < 30) {
-        $difference['medium'][$i] = (30 - $i) / (30 - 20);
+        $difference['medium']["$i"] = (30 - $i) / (30 - 20);
     } elseif ($i >= 30) {
-        $difference['medium'][$i] = 0;
+        $difference['medium']["$i"] = 0;
     }
 
     //VARIABLE - BIG
     if ($i <= 20) {
-        $difference['big'][$i] = 0;
+        $difference['big']["$i"] = 0;
     } elseif ($i > 20 && $i <= 30) {
-        $difference['big'][$i] = ($i - 20) / (30 - 20);
+        $difference['big']["$i"] = ($i - 20) / (30 - 20);
     } elseif ($i > 30 && $i < 40) {
-        $difference['big'][$i] = (40 - $i) / (40 - 30);
+        $difference['big']["$i"] = (40 - $i) / (40 - 30);
     } elseif ($i >= 40) {
-        $difference['big'][$i] = 0;
+        $difference['big']["$i"] = 0;
     }
 
     //VARIABLE - V.BIG
     if ($i <= 30) {
-        $difference['v.big'][$i] = 0;
+        $difference['v.big']["$i"] = 0;
     } elseif ($i > 30 && $i <= 40) {
-        $difference['v.big'][$i] = ($i - 30) / (40 - 30);
+        $difference['v.big']["$i"] = ($i - 30) / (40 - 30);
     } elseif ($i > 40 && $i < 50) {
-        $difference['v.big'][$i] = (50 - $i) / (50 - 40);
+        $difference['v.big']["$i"] = (50 - $i) / (50 - 40);
     } elseif ($i >= 50) {
-        $difference['v.big'][$i] = 0;
+        $difference['v.big']["$i"] = 0;
     }
 }
 
+echo "<pre>";
+print_r($difference);
+echo "</pre>";
 
 //LINGUISTIC VARIABLE - HEATING [v.small, small, medium, big, v.big]
 //array from -10 to 50, increments = 0.01 (changeable)
@@ -136,10 +141,6 @@ for ($i = -10; $i <= 50; $i++) {
     }
 }
 
-echo "<pre>";
-print_r($difference);
-echo "</pre>";
-
 
 $fuzzyValues = [];
 
@@ -156,11 +157,11 @@ $heatingAfterConc = [];
 
 //RULE IF difference = v.small THEN heating = v.big
 $min = $fuzzyValues[0][0];
-$heatingAfterConc[] = getHeatingAfeterConc($min, $heating['v.big']);
+$heatingAfterConc[] = getHeatingAfeterConc($min, $heating['v.small']);
 
 //RULE IF difference = small THEN heating = big
 $min = $fuzzyValues[1][0];
-$heatingAfterConc[] = getHeatingAfeterConc($min, $heating['big']);
+$heatingAfterConc[] = getHeatingAfeterConc($min, $heating['small']);
 
 //RULE IF difference = medium THEN heating = medium
 $min = $fuzzyValues[2][0];
@@ -168,11 +169,11 @@ $heatingAfterConc[] = getHeatingAfeterConc($min, $heating['medium']);
 
 //RULE IF difference = big THEN heating = small
 $min = $fuzzyValues[3][0];
-$heatingAfterConc[] = getHeatingAfeterConc($min, $heating['small']);
+$heatingAfterConc[] = getHeatingAfeterConc($min, $heating['big']);
 
 //RULE IF difference = v.big THEN heating = v.small
 $min = $fuzzyValues[4][0];
-$heatingAfterConc[] = getHeatingAfeterConc($min, $heating['v.small']);
+$heatingAfterConc[] = getHeatingAfeterConc($min, $heating['v.big']);
 
 function getHeatingAfeterConc($min, array $heating): array
 {
