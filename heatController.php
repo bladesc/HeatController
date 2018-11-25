@@ -143,12 +143,20 @@ echo "</pre>";
 
 $fuzzyValues = [];
 
-$fuzzyValues[] = [$difference['v.small'][$tempDifference], 'v.small'];
-$fuzzyValues[] = [$difference['small'][$tempDifference], 'small'];
-$fuzzyValues[] = [$difference['medium'][$tempDifference], 'v.medium'];
-$fuzzyValues[] = [$difference['big'][$tempDifference], 'big'];
-$fuzzyValues[] = [$difference['v.big'][$tempDifference], 'v.big'];
+foreach ($difference as $key => $value) {
+    $fuzzyValues[] = [$difference[$key][$tempDifference], $key];
+}
+;
+
+
+
+if ($fuzzyValues[0][1] === 'v.small') {
+
+}
+
 
 echo "<pre>";
 print_r($fuzzyValues);
 echo "</pre>";
+
+
