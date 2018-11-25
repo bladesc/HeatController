@@ -161,6 +161,51 @@ for ($i = -10; $i <= 50; $i = $i + 0.01) {
     }
 }
 
+//ZMIENNA LINGWISTYCZNA - WENTYLACJA
+//200 (200m3/h) odpowiednik około 2000rmp (obroty na minutę)
+for ($i = -40; $i <= 200; $i++) {
+    //TERM - MAŁE (WYŁĄCZ)
+    if ($i <= -40 || $i >= 40) {
+        $wentylacja['b_male'][$i] = 0;
+    } elseif ($i > -40 && $i <= 0) {
+        $wentylacja['b_male'][$i] = ($i - (-40)) / (0 - (-40));
+    } elseif ($i > 0 && $i < 40) {
+        $wentylacja['b_male'][$i] = (40 - $i) / (40 - 0);
+    }
+    //TERM - ŚREDNIE
+    if ($i <= 0 || $i >= 80) {
+        $wentylacja['male'][$i] = 0;
+    } elseif ($i > 0 && $i <= 40) {
+        $wentylacja['male'][$i] = ($i - 0) / (40 - 0);
+    } elseif ($i > 40 && $i < 80) {
+        $wentylacja['male'][$i] = (80 - $i) / (80 - 40);
+    }
+    //TERM - ŚREDNIE
+    if ($i <= 40 || $i >= 120) {
+        $wentylacja['srednie'][$i] = 0;
+    } elseif ($i > 40 && $i <= 80) {
+        $wentylacja['srednie'][$i] = ($i - 40) / (80 - 40);
+    } elseif ($i > 80 && $i < 120) {
+        $wentylacja['srednie'][$i] = (120 - $i) / (120 - 80);
+    }
+    //TERM - ŚREDNIE
+    if ($i <= 80 || $i >= 160) {
+        $wentylacja['duze'][$i] = 0;
+    } elseif ($i > 80 && $i <= 120) {
+        $wentylacja['duze'][$i] = ($i - 80) / (120 - 80);
+    } elseif ($i > 120 && $i < 160) {
+        $wentylacja['duze'][$i] = (160 - $i) / (160 - 120);
+    }
+    //TERM - ŚREDNIE
+    if ($i <= 120 || $i >= 200) {
+        $wentylacja['b_duze'][$i] = 0;
+    } elseif ($i > 120 && $i <= 160) {
+        $wentylacja['b_duze'][$i] = ($i - 120) / (160 - 120);
+    } elseif ($i > 160 && $i < 200) {
+        $wentylacja['b_duze'][$i] = (200 - $i) / (200 - 160);
+    }
+}
+
 /**
  * 3. FUZZIFICATION
  */
