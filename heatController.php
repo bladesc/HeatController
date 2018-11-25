@@ -12,7 +12,8 @@
  */
 
 //Temperature in outside
-$tempInside = 10;
+$tempInside = $_GET["actTemp"];
+settype($tempInside, "float");
 
 //Temperature desired
 $tempDesired = 21.00;
@@ -23,7 +24,7 @@ $tempDesired = 21.00;
  */
 
 //Temperature difference
-$tempDifference = round ($tempDesired - $tempInside, 2);
+$tempDifference = round($tempDesired - $tempInside, 2);
 
 //Array for for linguistic variable - DIFFERANCE
 $difference = [];
@@ -260,6 +261,25 @@ for ($i = -10; $i <= 50; $i = $i + 0.01) {
     $denominator = $denominator + $afterAggregation["$i"];
 }
 
+//Sharpen value
 $sharpen_value = round($nominator / $denominator, 2);
 
-echo $sharpen_value;
+
+//Calculating temperature gain
+$tempAfterHeating = roundUp($tempInside + ($tempInside * $sharpen_value * 0.01), 2);
+
+//It returns value round to $precision value, value is rounded up (ex. 0.021 => 0.03)
+function roundUp($value, $precision)
+{
+    $pow = pow(10, $precision);
+    return (ceil($pow * $value) + ceil($pow * $value - ceil($pow * $value))) / $pow;
+}
+
+//Data to send in json format
+$data = [
+    'tempAfterHeating' => $tempAfterHeating,
+    'sharpenHeatingValue' => $sharpen_value
+];
+
+//printing json data
+echo json_encode($data);
