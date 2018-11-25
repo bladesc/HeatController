@@ -273,7 +273,7 @@ if ($dropTemp > 0) {
 }
 
 //Calculating temperature gain
-$tempAfterHeating = roundUp($tempInside + ($tempInside * $sharpen_value * 0.01), 2);
+$tempAfterHeating = roundUp($tempInside + ($sharpen_value * 0.1), 2);
 
 //It returns value round to $precision value, value is rounded up (ex. 0.021 => 0.03)
 function roundUp($value, $precision)

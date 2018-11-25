@@ -2,6 +2,7 @@
     width: 100%;
     height: 100%;
 }
+
 html, body {
     font-family: Arial;
     color: #d8dce6;
@@ -11,10 +12,12 @@ html, body {
     background: #282c36;
     height: 100%;
 }
+
 #box-left {
     width: 70%;
     float: left;
 }
+
 #box-right {
     width: 30%;
     float: left;
@@ -23,18 +26,22 @@ html, body {
     color: #7684a8;
     font-size: 11px;
 }
+
 #box-right-content {
     padding: 40px;
     box-sizing: border-box;
     height: 100%;
     overflow: scroll;
 }
+
 #box-right-content b {
     color: #FFF;
 }
+
 #box-right-content > div {
     margin-bottom: 20px;
 }
+
 .main-content {
     position: relative;
     background: #3e4453;
@@ -44,11 +51,13 @@ html, body {
     box-sizing: border-box;
     float: left;
 }
+
 #temp-desired {
     position: absolute;
     bottom: 30px;
     right: 40px;
 }
+
 h3 {
     font-weight: bold;
     font-size: 16px;
@@ -56,23 +65,44 @@ h3 {
     margin: 10px 0;
     padding: 0;
 }
+
 .main-content p {
     margin: 0 0 0 0;
     font-weight: bold;
 }
+
 #fan, #temp {
     font-size: 48px;
     color: #34ef50;
 }
+
 #v-fan, #v-temp {
-    font-size: 36px;
+    font-size: 48px;
     color: #8a99be;
 }
+
+#com-info {
+    display: block;
+    float: left;
+    width: 90%;
+    margin-top: 40px;
+    margin-left: 5%;
+    background: #5f3b3b;
+    padding: 20px;
+    box-sizing: border-box;
+    color: red;
+}
+
+#com-info {
+    display: none;
+}
+
 .main-content span {
     margin-bottom: 10px;
     display: block;
     font-size: 14px;
 }
+
 #start-simulation {
     padding: 13px 40px;
     border-radius: 2px;
@@ -85,6 +115,7 @@ h3 {
     text-transform: uppercase;
     transition: 0.3s;
 }
+
 #stop-simulation {
     margin-left: 30px;
     padding: 13px 40px;
@@ -98,19 +129,23 @@ h3 {
     text-transform: uppercase;
     transition: 0.3s;
 }
+
 #start-simulation:hover {
     background: #74ca79;
     border-radius: 10px;
 }
+
 #stop-simulation:hover {
     background: #d31e18;
     border-radius: 10px;
 }
+
 #details {
     margin-top: 40px;
     float: left;
     margin-left: 5%;
 }
+
 .box-foot {
     width: 100%;
     clear: both;
@@ -118,17 +153,20 @@ h3 {
     line-height: 0;
     clear: both;
 }
+
 #pos-list {
     display: none;
     overflow: 0;
     height: 0;
 }
+
 .add-info {
     width: 28%;
     margin-top: 20px;
     float: left;
     margin-left: 5%;
 }
+
 #temp-desired b {
     color: #ef3434;;
 }

@@ -51,8 +51,8 @@ $(document).ready(function () {
 
                     //preparing html to write in right panel in index.html
                     var html = "<div>" +
-                        "<div class='t-wew'>Temp. wewnętrzna: <b>" + response.tempAfterHeating + "</b></div>" +
-                        "<div class='t-wew'>Temp. ww: <b>" + response.sharpenHeatingValue + "</b></div>" +
+                        "<div class='t-wew'>Temp. inside: <b>" + response.tempAfterHeating + "</b></div>" +
+                        "<div class='t-wew'>Temp. sharpen value: <b>" + response.sharpenHeatingValue + "</b></div>" +
                         "</div>";
                     $('#box-right-content').append(html);
                 })
@@ -75,6 +75,7 @@ $(document).ready(function () {
 
     //INITIAL DATA
 
+
     //TEMP DESIRED
     var boxTempDesired = $("#temp-desired");
     var butTempDesired = $("#but-temp-desired");
@@ -87,16 +88,35 @@ $(document).ready(function () {
     var actualTemp = parseFloat(butTemp.val());
     boxTemp.html(actualTemp);
 
+    checkDifferance();
+
     //It changes value when clicked or key up number field '#but-temp-inside'
     $('#but-temp-inside').bind('click keyup', function () {
         actualTemp = parseFloat(butTemp.val());
         boxTemp.html(actualTemp);
+        checkDifferance();
     });
 
     //It changes value when clicked or key up number field '#but-temp-desired'
     $('#but-temp-desired').bind('click keyup', function () {
         desiredTemp = parseFloat(butTempDesired.val());
         boxTempDesired.html("temp. desired: <b>" + desiredTemp + "</b>");
+        checkDifferance();
     });
+
+    function checkDifferance() {
+        actualTemp = parseFloat(butTemp.val());
+        desiredTemp = parseFloat(butTempDesired.val());
+        if ((actualTemp - desiredTemp) > 40 || (actualTemp - desiredTemp) < -40) {
+            $("#start-simulation").hide(300);
+            $("#com-info ").show(300);
+            //clearInterval(myint);
+        } else {
+            $("#com-info ").hide(300);
+            $("#start-simulation").show(300);
+            //myint = setInterval(myint,5000);
+
+        }
+    }
 
 });
