@@ -192,3 +192,31 @@ print_r($heatingAfterConc);
 echo "</pre>";
 
 
+$afterAggregation = [];
+for ($i = -10; $i <= 50; $i++) {
+
+   $max = 0;
+   foreach ($heatingAfterConc as $key => $value) {
+       if ($value[$i] > $max) {
+           $max = $value[$i];
+       }
+   }
+   $afterAggregation[$i] = $max;
+}
+
+echo "<pre>";
+print_r($afterAggregation);
+echo "</pre>";
+
+
+//WYOSTRZENIE
+$nominator = 0;
+$denominator = 0;
+for ($i = -10; $i <= 50; $i++) {
+    $nominator = round($nominator + ($i * $afterAggregation[$i]), 2);
+    $denominator = $denominator + $afterAggregation[$i];
+}
+
+$sharpen_value = $nominator / $denominator;
+
+echo $sharpen_value;
