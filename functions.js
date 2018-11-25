@@ -1,7 +1,10 @@
 $(document).ready(function () {
 
+    /**
+     * AJAX
+     * */
 
-    //intervatal variable
+        //intervatal variable
     var myint
 
     //It stops the loop/simulaton
@@ -14,19 +17,30 @@ $(document).ready(function () {
 
         myint = setInterval(function () {
 
+            //temperature
             var boxTemp = $("#temp");
             var actualTemp = parseFloat(boxTemp.html());
             var vTemp = $('#v-temp');
+
+            //desired tempreature
+            var boxTempDesired = $("#but-temp-desired");
+            var desTemp = parseFloat(boxTempDesired.val());
+
+            //drop temperature
+            var butTempDrop = $("#but-temp-drop");
+            var dropTemp = parseFloat(butTempDrop.val());
 
             $.ajax({
                 url: "heatController.php",
                 type: "get", //typ połączeniSW
                 dataType: 'json', //typ danych jakich oczekujemy w odpowiedzi
                 data: { //dane do wysyłki
-                    actTemp: actualTemp
+                    actTemp: actualTemp,
+                    desTemp: desTemp,
+                    dropTemp: dropTemp
                 }
             })
-                //when done
+            //when done
                 .done(function (response) {
 
                     console.log(response);
@@ -55,5 +69,34 @@ $(document).ready(function () {
         }, 500);
     });
 
+    /**
+     * OTHER
+     */
+
+    //INITIAL DATA
+
+    //TEMP DESIRED
+    var boxTempDesired = $("#temp-desired");
+    var butTempDesired = $("#but-temp-desired");
+    var desiredTemp = parseFloat(butTempDesired.val());
+    boxTempDesired.html("temp. desired: <b>" + desiredTemp + "</b>");
+
+    //TEMP INSIDE
+    var boxTemp = $("#temp");
+    var butTemp = $("#but-temp-inside");
+    var actualTemp = parseFloat(butTemp.val());
+    boxTemp.html(actualTemp);
+
+    //It changes value when clicked or key up number field '#but-temp-inside'
+    $('#but-temp-inside').bind('click keyup', function () {
+        actualTemp = parseFloat(butTemp.val());
+        boxTemp.html(actualTemp);
+    });
+
+    //It changes value when clicked or key up number field '#but-temp-desired'
+    $('#but-temp-desired').bind('click keyup', function () {
+        desiredTemp = parseFloat(butTempDesired.val());
+        boxTempDesired.html("temp. desired: <b>" + desiredTemp + "</b>");
+    });
 
 });

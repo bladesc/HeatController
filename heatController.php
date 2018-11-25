@@ -16,9 +16,12 @@ $tempInside = $_GET["actTemp"];
 settype($tempInside, "float");
 
 //Temperature desired
-$tempDesired = 21.00;
+$tempDesired = $_GET["desTemp"];
+settype($tempDesired, "float");
 
-
+//Temperature drop
+$dropTemp = $_GET["dropTemp"];
+settype($tempDesired, "float");
 /**
  * 2. INITIATION LINGUISTIC VARIABLE - DIFFERENCE, HEATING
  */
@@ -264,6 +267,10 @@ for ($i = -10; $i <= 50; $i = $i + 0.01) {
 //Sharpen value
 $sharpen_value = round($nominator / $denominator, 2);
 
+//if passed temperature drop is > 0
+if ($dropTemp > 0) {
+    $tempInside -= $dropTemp;
+}
 
 //Calculating temperature gain
 $tempAfterHeating = roundUp($tempInside + ($tempInside * $sharpen_value * 0.01), 2);
