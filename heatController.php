@@ -6,7 +6,7 @@
  * Time: 17:40
  */
 $tempInside = 10;
-$tempDesired = 50.00;
+$tempDesired = 21.00;
 $tempDifference = round ($tempDesired - $tempInside, 2);
 $difference = [];
 $heating = [];
@@ -187,9 +187,9 @@ for ($i = -10; $i <= 50; $i = $i + 0.01) {
     }
     $afterAggregation["$i"] = $max;
 }
-echo "<pre>";
+/*echo "<pre>";
 print_r($afterAggregation);
-echo "</pre>";
+echo "</pre>";*/
 
 
 //WYOSTRZENIE
