@@ -6,10 +6,10 @@
  * Time: 17:40
  */
 
-$tempInside = null;
-$tempDesired = null;
+$tempInside = 10;
+$tempDesired = 14;
 
-$tempDifference = $tempInside - $tempDesired;
+$tempDifference = $tempDesired - $tempInside;
 
 $difference = [];
 $heating = [];
@@ -138,4 +138,17 @@ for ($i = -10; $i <= 50; $i++) {
 
 echo "<pre>";
 print_r($difference);
+echo "</pre>";
+
+
+$fuzzyValues = [];
+
+$fuzzyValues[] = [$difference['v.small'][$tempDifference], 'v.small'];
+$fuzzyValues[] = [$difference['small'][$tempDifference], 'small'];
+$fuzzyValues[] = [$difference['medium'][$tempDifference], 'v.medium'];
+$fuzzyValues[] = [$difference['big'][$tempDifference], 'big'];
+$fuzzyValues[] = [$difference['v.big'][$tempDifference], 'v.big'];
+
+echo "<pre>";
+print_r($fuzzyValues);
 echo "</pre>";
