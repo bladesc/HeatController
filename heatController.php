@@ -20,7 +20,7 @@ $heating = [];
 for ($i = -10; $i <= 50; $i = $i + 0.01) {
 
     $i = round($i, 2);
-    
+
     //VARIABLE - V.SMALL
     if ($i <= -10) {
         $difference['v.small']["$i"] = 0;
@@ -77,9 +77,11 @@ for ($i = -10; $i <= 50; $i = $i + 0.01) {
     }
 }
 
+/*
 echo "<pre>";
 print_r($difference);
 echo "</pre>";
+*/
 
 //LINGUISTIC VARIABLE - HEATING [v.small, small, medium, big, v.big]
 //array from -10 to 50, increments = 0.01 (changeable)
