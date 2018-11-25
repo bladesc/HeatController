@@ -12,15 +12,15 @@
  */
 
 //Temperature in outside
-$tempInside = $_GET["actTemp"];
+$tempInside = $_POST["actTemp"];
 settype($tempInside, "float");
 
 //Temperature desired
-$tempDesired = $_GET["desTemp"];
+$tempDesired = $_POST["desTemp"];
 settype($tempDesired, "float");
 
 //Temperature drop
-$dropTemp = $_GET["dropTemp"];
+$dropTemp = $_POST["dropTemp"];
 settype($tempDesired, "float");
 /**
  * 2. INITIATION LINGUISTIC VARIABLE - DIFFERENCE, HEATING
@@ -206,7 +206,7 @@ $heatingAfterConc[] = getHeatingAfeterConc($min, $heating['v.big']);
 
 //It returns array after performing function min(fuzzy value, arr)
 //It performs function in heating variable!
-function getHeatingAfeterConc($min, array $heating): array
+function getHeatingAfeterConc($min, $heating)
 {
     for ($i = -10; $i <= 50; $i = $i + 0.01) {
 

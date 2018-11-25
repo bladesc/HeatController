@@ -32,7 +32,7 @@ $(document).ready(function () {
 
             $.ajax({
                 url: "heatController.php",
-                type: "get", //typ połączeniSW
+                type: "post", //typ połączeniSW
                 dataType: 'json', //typ danych jakich oczekujemy w odpowiedzi
                 data: { //dane do wysyłki
                     actTemp: actualTemp,
