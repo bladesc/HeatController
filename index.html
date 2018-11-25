@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Program - Logika rozmoyta (sterownik pieca)</title>
+
+    <script src="jquery331.js"></script>
+    <script src="functions.js"></script>
+    <style>
+        #box-page {
+            width: 100%;
+            height: 100%;
+        }
+
+        html, body {
+            font-family: Arial;
+            color: #d8dce6;
+            font-size: 15px;
+            margin: 0;
+            padding: 0;
+            background: #282c36;
+            height: 100%;
+        }
+
+        #box-left {
+            width: 70%;
+            float: left;
+        }
+
+        #box-right {
+            width: 30%;
+            float: left;
+            background: #22262e;
+            height: 100%;
+            color: #7684a8;
+            font-size: 11px;
+        }
+
+        #box-right-content {
+            padding: 40px;
+            box-sizing: border-box;
+            height: 100%;
+            overflow: scroll;
+        }
+
+        #box-right-content b {
+            color: #FFF;
+        }
+
+        #box-right-content > div {
+            margin-bottom: 20px;
+        }
+
+        .main-content {
+            background: #3e4453;
+            width: 40%;
+            margin: 40px 0 0 5%;
+            padding: 20px 40px;
+            box-sizing: border-box;
+            float: left;
+        }
+
+        h3 {
+            font-weight: bold;
+            font-size: 16px;
+            text-transform: uppercase;
+            margin: 10px 0;
+            padding: 0;
+        }
+
+        .main-content p {
+            margin: 0 0 0 0;
+            font-weight: bold;
+        }
+
+        #fan, #temp {
+            font-size: 48px;
+            color: #ef3934;
+        }
+
+        #v-fan, #v-temp {
+            font-size: 36px;
+            color: #8a99be;
+        }
+
+        .main-content span {
+            margin-bottom: 10px;
+            display: block;
+            font-size: 14px;
+        }
+
+        #start-simulation {
+            padding: 13px 40px;
+            border-radius: 2px;
+            font-weight: bold;
+            font-size: 14px;
+            color: #fff;
+            background: #4aad53;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        #stop-simulation {
+            margin-left: 30px;
+            padding: 13px 40px;
+            border-radius: 2px;
+            font-weight: bold;
+            font-size: 14px;
+            color: #fff;
+            background: #ad1914;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        #start-simulation:hover {
+            background: #74ca79;
+            border-radius: 10px;
+        }
+
+        #stop-simulation:hover {
+            background: #d31e18;
+            border-radius: 10px;
+        }
+
+        #details {
+            margin-top: 40px;
+            float: left;
+            margin-left: 5%;
+        }
+
+        .box-foot {
+            width: 100%;
+            clear: both;
+            font-size: 0;
+            line-height: 0;
+            clear: both;
+        }
+
+        #pos-list {
+            display: none;
+            overflow: 0;
+            height: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div id="box-page">
+    <div id="box-left">
+        <div class="main-content">
+            <h3>Temperatura [C]</h3>
+            <p id="temp">
+                10
+            </p>
+        </div>
+        <div class="main-content">
+            <h3>Obroty [RPM]</h3>
+            <p id="fan">
+                20
+            </p>
+        </div>
+        <div class="main-content">
+            <h3>WARTOŚĆ WYOSTRZONA</h3>
+            <span>Zmienna lingwistyczna - OGRZEWANIE</span>
+            <p id="v-temp">
+                29,000021
+            </p>
+        </div>
+        <div class="main-content">
+            <h3>WARTOŚĆ WYOSTRZONA</h3>
+            <span>Zmienna lingwistyczna - WENTYLACJA</span>
+            <p id="v-fan">
+                29,000021
+            </p>
+        </div>
+        <div id="pos-list">0</div>
+        <div id="details">
+            <button id="start-simulation">Rozpocznij symulację</button>
+            <button id="stop-simulation">Zatrzymaj</button>
+        </div>
+
+    </div>
+    <div id="box-right">
+        <div id="box-right-content">
+            sd
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -6,8 +6,11 @@
  * Time: 17:40
  */
 
-$tempInside = 10;
-$tempDesired = 10.9;
+//$tempInside = $_GET["actTemp"];
+//settype($tempInside, "float");
+
+$tempInside = 19.08;
+$tempDesired = 20.0;
 
 $tempDifference = $tempDesired - $tempInside;
 
@@ -150,9 +153,9 @@ foreach ($difference as $key => $value) {
     $fuzzyValues[] = [$difference[$key][$tempDifference], $key];
 }
 
-echo "<pre>";
+/*echo "<pre>";
 print_r($fuzzyValues);
-echo "</pre>";
+echo "</pre>";*/
 
 
 $heatingAfterConc = [];
@@ -190,26 +193,26 @@ function getHeatingAfeterConc($min, array $heating): array
     return $heatingAfterConcValue;
 }
 
-echo "<pre>";
+/*echo "<pre>";
 print_r($heatingAfterConc);
-echo "</pre>";
+echo "</pre>";*/
 
 
 $afterAggregation = [];
 for ($i = -10; $i <= 50; $i++) {
 
-   $max = 0;
-   foreach ($heatingAfterConc as $key => $value) {
-       if ($value[$i] > $max) {
-           $max = $value[$i];
-       }
-   }
-   $afterAggregation[$i] = $max;
+    $max = 0;
+    foreach ($heatingAfterConc as $key => $value) {
+        if ($value[$i] > $max) {
+            $max = $value[$i];
+        }
+    }
+    $afterAggregation[$i] = $max;
 }
 
-echo "<pre>";
+/*echo "<pre>";
 print_r($afterAggregation);
-echo "</pre>";
+echo "</pre>";*/
 
 
 //WYOSTRZENIE
@@ -220,6 +223,13 @@ for ($i = -10; $i <= 50; $i++) {
     $denominator = $denominator + $afterAggregation[$i];
 }
 
-$sharpen_value = $nominator / $denominator;
+echo $sharpen_value = $nominator / $denominator;
 
-echo $sharpen_value;
+$tempAfterHeating = round($tempInside + ($tempInside * $sharpen_value * 0.01), 2);
+
+$data = [
+    'tempAfterHeating' => $tempAfterHeating,
+    'sharpenHeatingValue' => $sharpen_value
+];
+
+echo json_encode($data);
