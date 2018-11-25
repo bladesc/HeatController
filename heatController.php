@@ -146,17 +146,49 @@ $fuzzyValues = [];
 foreach ($difference as $key => $value) {
     $fuzzyValues[] = [$difference[$key][$tempDifference], $key];
 }
-;
-
-
-
-if ($fuzzyValues[0][1] === 'v.small') {
-
-}
-
 
 echo "<pre>";
 print_r($fuzzyValues);
+echo "</pre>";
+
+
+$heatingAfterConc = [];
+
+//RULE IF difference = v.small THEN heating = v.big
+$min = $fuzzyValues[0][0];
+$heatingAfterConc[] = getHeatingAfeterConc($min, $heating['v.big']);
+
+//RULE IF difference = small THEN heating = big
+$min = $fuzzyValues[1][0];
+$heatingAfterConc[] = getHeatingAfeterConc($min, $heating['big']);
+
+//RULE IF difference = medium THEN heating = medium
+$min = $fuzzyValues[2][0];
+$heatingAfterConc[] = getHeatingAfeterConc($min, $heating['medium']);
+
+//RULE IF difference = big THEN heating = small
+$min = $fuzzyValues[3][0];
+$heatingAfterConc[] = getHeatingAfeterConc($min, $heating['small']);
+
+//RULE IF difference = v.big THEN heating = v.small
+$min = $fuzzyValues[4][0];
+$heatingAfterConc[] = getHeatingAfeterConc($min, $heating['v.small']);
+
+function getHeatingAfeterConc($min, array $heating): array
+{
+    for ($i = -10; $i <= 50; $i++) {
+        if ($min < $heating[$i]) {
+            $heatingAfterConcValue[$i] = $min;
+        } else {
+            $heatingAfterConcValue[$i] = $heating[$i];
+        }
+    }
+
+    return $heatingAfterConcValue;
+}
+
+echo "<pre>";
+print_r($heatingAfterConc);
 echo "</pre>";
 
 
