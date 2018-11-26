@@ -112,20 +112,20 @@ $(document).ready(function () {
     var actualTemp = parseFloat(butTemp.val());
     boxTemp.html(actualTemp);
 
-    checkDifferance();
+    //checkDifferance();
 
     //It changes value when clicked or key up number field '#but-temp-inside'
     $('#but-temp-inside').bind('click keyup', function () {
         actualTemp = parseFloat(butTemp.val());
         boxTemp.html(actualTemp);
-        checkDifferance();
+        //checkDifferance();
     });
 
     //It changes value when clicked or key up number field '#but-temp-desired'
     $('#but-temp-desired').bind('click keyup', function () {
         desiredTemp = parseFloat(butTempDesired.val());
         boxTempDesired.html("temp. desired: <b>" + desiredTemp + "</b>");
-        checkDifferance();
+        //checkDifferance();
 
         $("#temp-desired-line").css({'bottom' : desiredTemp*4 + 'px'});
     });
