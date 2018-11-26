@@ -46,18 +46,18 @@ $(document).ready(function () {
             //when done
                 .done(function (response) {
 
-                    console.log(response);
+                    //console.log(response);
 
                     //writing data to html element in index.html
                     boxTemp.html(response.tempAfterHeating);
                     vTemp.html(response.sharpenHeatingValue);
 
                     //preparing html to write in right panel in index.html
-                    var html = "<div>" +
+                    /*var html = "<div>" +
                         "<div class='t-wew'>Temp. inside: <b>" + response.tempAfterHeating + "</b></div>" +
                         "<div class='t-wew'>Temp. sharpen value: <b>" + response.sharpenHeatingValue + "</b></div>" +
                         "</div>";
-                    $('#box-right-content').append(html);
+                    $('#box-right-content').append(html);*/
 
                     //functuons for diagram
                     if (arrDiagram.length < 20) {
