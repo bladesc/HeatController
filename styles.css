@@ -14,12 +14,12 @@ html, body {
 }
 
 #box-left {
-    width: 70%;
+    width: 100%;
     float: left;
 }
 
 #box-right {
-    width: 30%;
+    width: 0%;
     float: left;
     background: #22262e;
     height: 100%;
