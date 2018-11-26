@@ -104,6 +104,7 @@ $(document).ready(function () {
     var butTempDesired = $("#but-temp-desired");
     var desiredTemp = parseFloat(butTempDesired.val());
     boxTempDesired.html("temp. desired: <b>" + desiredTemp + "</b>");
+    $("#temp-desired-line").css({'bottom' : desiredTemp*4 + 'px'});
 
     //TEMP INSIDE
     var boxTemp = $("#temp");
@@ -125,6 +126,8 @@ $(document).ready(function () {
         desiredTemp = parseFloat(butTempDesired.val());
         boxTempDesired.html("temp. desired: <b>" + desiredTemp + "</b>");
         checkDifferance();
+
+        $("#temp-desired-line").css({'bottom' : desiredTemp*4 + 'px'});
     });
 
     function checkDifferance() {

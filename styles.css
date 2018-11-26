@@ -176,8 +176,15 @@ h3 {
     margin-right: 5%;
     width: 90%;
     float: left;
-    margin-top: 40px;
+    margin-top: 60px;
+    height: 100%;
+    position: relative;
+}
 
+#temp-desired-line {
+    transition: 0.3s;
+    bottom: 0;
+    border-bottom: 2px dashed #dc0400 !important;
 }
 
 #diag {
@@ -197,7 +204,7 @@ h3 {
     margin: 0 0.1%;
     height: 1px;
     position: absolute;
-    background: red;
+    background: rgba(52, 239, 80, 0.3);
     text-align: center;
 }
 
@@ -207,79 +214,138 @@ h3 {
     padding: 5px 0;
 }
 
-.row0 {
+#labels-left {
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+#labels-left > div {
+    position: absolute;
+    border-bottom: 1px solid #7d8088;
+    width: 100%;
+}
+
+#labels-left div:nth-child(1) {
+    bottom: 0;
+}
+
+#labels-left div:nth-child(2) {
+    bottom: 40px;
+}
+
+#labels-left div:nth-child(3) {
+    bottom: 80px;
+}
+
+#labels-left div:nth-child(4) {
+    bottom: 120px;
+}
+
+#labels-left div:nth-child(5) {
+    bottom: 160px;
+}
+
+#labels-left div:nth-child(6) {
+    bottom: 200px;
+}
+
+#labels-bottom {
+    position: absolute;
+    width: 95%;
+    left: 5%;
+    bottom: -10px;
+}
+
+#labels-bottom > div {
+    position: absolute;
+    width: 5%;
+    text-align: center;
+}
+
+#labels-bottom div:nth-child(21) {
+
+}
+
+#labels-bottom div:nth-child(1) {
     left: 0;
 }
 
-.row1 {
+.row0, #labels-bottom div:nth-child(1) {
+    left: 0;
+}
+
+.row1, #labels-bottom div:nth-child(2) {
     left: 5%;
 }
 
-.row2 {
+.row2, #labels-bottom div:nth-child(3) {
     left: 10%;
 }
 
-.row3 {
+.row3, #labels-bottom div:nth-child(4) {
     left: 15%;
 }
 
-.row4 {
+.row4, #labels-bottom div:nth-child(5) {
     left: 20%;
 }
 
-.row5{
+.row5, #labels-bottom div:nth-child(6){
     left: 25%;
 }
 
-.row6 {
+.row6, #labels-bottom div:nth-child(7) {
     left: 30%;
 }
 
-.row7 {
+.row7, #labels-bottom div:nth-child(8) {
     left: 35%;
 }
 
-.row8 {
+.row8, #labels-bottom div:nth-child(9) {
     left: 40%;
 }
 
-.row9 {
+.row9, #labels-bottom div:nth-child(10) {
     left: 45%;
 }
 
-.row10 {
+.row10, #labels-bottom div:nth-child(11) {
     left: 50%;
 }
 
-.row11 {
+.row11, #labels-bottom div:nth-child(12) {
     left: 55%;
 }
 
-.row12 {
+.row12, #labels-bottom div:nth-child(13) {
     left: 60%;
 }
 
-.row13 {
+.row13, #labels-bottom div:nth-child(14) {
     left: 65%;
 }
 
-.row14 {
+.row14, #labels-bottom div:nth-child(15) {
     left: 70%;
 }
 
-.row15 {
+.row15, #labels-bottom div:nth-child(16) {
     left: 75%;
 }
-.row16 {
+.row16, #labels-bottom div:nth-child(17) {
     left: 80%;
 }
-.row17 {
+.row17, #labels-bottom div:nth-child(18) {
     left: 85%;
 }
-.row18 {
+.row18, #labels-bottom div:nth-child(19) {
     left: 90%;
 }
-.row19 {
+.row19, #labels-bottom div:nth-child(20) {
     left: 95%;
 }
 
