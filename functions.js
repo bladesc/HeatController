@@ -4,7 +4,10 @@ $(document).ready(function () {
      * AJAX
      * */
 
-        //intervatal variable
+    //array for diagram
+    var arrDiagram = [];
+
+    //intervatal variable
     var myint
 
     //It stops the loop/simulaton
@@ -55,6 +58,18 @@ $(document).ready(function () {
                         "<div class='t-wew'>Temp. sharpen value: <b>" + response.sharpenHeatingValue + "</b></div>" +
                         "</div>";
                     $('#box-right-content').append(html);
+
+                    //functuons for diagram
+                    if (arrDiagram.length < 20) {
+                        arrDiagram.push([response.tempAfterHeating, response.sharpenHeatingValue]);
+                    } else {
+                        arrDiagram.shift();
+                        arrDiagram.push([response.tempAfterHeating, response.sharpenHeatingValue]);
+                    }
+
+                    upgradeDiagram();
+
+                    //console.log(arrDiagram);
                 })
 
                 //when fail
@@ -68,6 +83,14 @@ $(document).ready(function () {
                 })
         }, 500);
     });
+
+    function upgradeDiagram()
+    {
+       for (var i=0; i<arrDiagram.length; i++) {
+           $('.row' + i).css({'height' : arrDiagram[i][0]*4 + 'px'});
+           $('.val' + i).html(arrDiagram[i][0]);
+       }
+    }
 
     /**
      * OTHER
